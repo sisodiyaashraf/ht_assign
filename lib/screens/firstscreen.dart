@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'second_screen.dart'; // <--- IMPORTS SECOND SCREEN
+import 'second_screen.dart';
 
 class FirstScreen extends StatelessWidget {
   const FirstScreen({super.key});
@@ -21,14 +21,12 @@ class FirstScreen extends StatelessWidget {
                     width: 322,
                     height: 347,
                     child: Image.asset(
-                      'assets/images/Frame 427319209.png', 
+                      'assets/images/Frame 427319209.png',
                       fit: BoxFit.contain,
                     ),
                   ),
                 ),
-                const Center(
-                  child: _StressLevelCard(),
-                ),
+                const Center(child: _StressLevelCard()),
 
                 const SizedBox(height: 20),
                 const _BottomControls(),
@@ -40,6 +38,7 @@ class FirstScreen extends StatelessWidget {
     );
   }
 }
+
 class _TopHeader extends StatelessWidget {
   const _TopHeader();
 
@@ -55,9 +54,9 @@ class _TopHeader extends StatelessWidget {
             Text(
               'Completed',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: Colors.green,
-                    fontWeight: FontWeight.w600,
-                  ),
+                color: Colors.green,
+                fontWeight: FontWeight.w600,
+              ),
             ),
             const Spacer(),
             IconButton(
@@ -69,10 +68,13 @@ class _TopHeader extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 10),
-        Text('You did good!',style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-        fontSize: 40, 
-        fontWeight: FontWeight.bold,
-      ),),
+        Text(
+          'You did good!',
+          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+            fontSize: 40,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         const SizedBox(height: 5),
         Text('05 Jul, 12:30pm', style: Theme.of(context).textTheme.bodyMedium),
       ],
@@ -102,16 +104,16 @@ class _StressLevelCard extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween, 
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
             children: [
               Text(
                 'Stress Level',
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
               ),
               const Spacer(),
               const Icon(Icons.show_chart, color: Colors.grey),
@@ -119,20 +121,22 @@ class _StressLevelCard extends StatelessWidget {
               const Icon(Icons.info_outline, color: Colors.grey),
             ],
           ),
-          
+
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-               Text('Relaxation Index',
-                  style: Theme.of(context).textTheme.bodyMedium),
+              Text(
+                'Relaxation Index',
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
               const SizedBox(height: 4),
               Row(
                 children: [
                   Text(
                     '100 %',
                     style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                          fontWeight: FontWeight.bold,
-                        ),
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   const Spacer(),
                   const Text(
@@ -146,7 +150,7 @@ class _StressLevelCard extends StatelessWidget {
               ),
             ],
           ),
-          
+
           const _CustomProgressBar(),
         ],
       ),
@@ -206,6 +210,7 @@ class _CustomProgressBar extends StatelessWidget {
 
 class _ProgressBarMarker extends StatelessWidget {
   final double leftFraction;
+
   const _ProgressBarMarker({required this.leftFraction});
 
   @override
@@ -217,11 +222,7 @@ class _ProgressBarMarker extends StatelessWidget {
         width: 3,
         color: Colors.grey.shade500,
         child: Center(
-          child: Container(
-            height: 45,
-            width: 1,
-            color: Colors.grey.shade200,
-          ),
+          child: Container(height: 45, width: 1, color: Colors.grey.shade200),
         ),
       ),
     );
@@ -244,19 +245,19 @@ class _BottomControls extends StatelessWidget {
             borderRadius: BorderRadius.circular(30),
           ),
           child: const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly, 
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               _IconButton(
                 assetPath: 'assets/images/bx_brain.png',
-                isSelected: false
+                isSelected: false,
               ),
               _IconButton(
-                assetPath: 'assets/images/ri_heart-pulse-line.png', 
-                isSelected: true
+                assetPath: 'assets/images/ri_heart-pulse-line.png',
+                isSelected: true,
               ),
               _IconButton(
-                assetPath: 'assets/images/lungs (1).png', 
-                isSelected: false
+                assetPath: 'assets/images/lungs (1).png',
+                isSelected: false,
               ),
             ],
           ),
@@ -272,9 +273,9 @@ class _BottomControls extends StatelessWidget {
           child: Text(
             'Skip',
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  color: Colors.grey.shade700,
-                  decoration: TextDecoration.underline,
-                ),
+              color: Colors.grey.shade700,
+              decoration: TextDecoration.underline,
+            ),
           ),
         ),
       ],
@@ -286,10 +287,7 @@ class _IconButton extends StatelessWidget {
   final String assetPath;
   final bool isSelected;
 
-  const _IconButton({
-    required this.assetPath, 
-    required this.isSelected
-  });
+  const _IconButton({required this.assetPath, required this.isSelected});
 
   @override
   Widget build(BuildContext context) {
@@ -311,11 +309,11 @@ class _IconButton extends StatelessWidget {
           : null,
       child: IconButton(
         onPressed: () {},
-        padding: EdgeInsets.zero, 
-        constraints: const BoxConstraints(), 
+        padding: EdgeInsets.zero,
+        constraints: const BoxConstraints(),
         icon: Image.asset(
           assetPath,
-          width: 24, 
+          width: 24,
           height: 24,
           color: isSelected ? Colors.blue : Colors.grey,
         ),
